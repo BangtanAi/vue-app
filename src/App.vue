@@ -1,10 +1,24 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+<div>
+  <div class="buttons">
+  <button @click="this.$router.push('/one')">1</button>
+  <button @click="this.$router.push('/two')">2</button>
+  <button @click="this.$router.push('/three')">3</button>
+</div>
   <router-view/>
+</div>
+
 </template>
+
+<script>
+import ButtonOne from './views/ButtonOne.vue';
+
+export default({
+  components: {
+    'button-one': ButtonOne
+  } 
+})
+</script>
 
 <style lang="scss">
 #app {
@@ -15,16 +29,18 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  padding: auto;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+}
+button{
+  padding: 20px 30px; 
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
 }
 </style>
